@@ -1,5 +1,24 @@
 
-The functions required for Example-swimmerSwimmer's initial conditions
-need to be changed so that they work in these examples.
-This is because the folder 'functions/' was made and added to all the pathways.
-(this was done to allow for easier version control between corrections to these functions.
+% Notes on errors in old code.
+The ~old~ code data had some issues with the way in which swimmer's caused toruqe on eachother. 
+This is because, in the implementation of equation (6) [overleaf outline document: https://www.overleaf.com/project/6273884dc43fb5564095f899], the sin/cos got mixed up.
+This is now fixed in current versions. 
+The example files given in the GitHub are the relevant tests: Some of the files in these need to be modified due to archetectural changes (next paragraph explains this).
+The boundary behaviour was as expected, as was the swimmer-colloid, since there was no torque involved (the backforce was turned off in these runs, so swimmers ignored colloids); the data from these runs is therefore I suspect, largely valid, since we operate in a relatively dilute regime.
+As such I will keep the old data for now, but I also want to re-run the corrected code before the project is complete so I can re-do the analysis.
+
+% Notes on changes needed to the example folders.
+The functions required for Example-swimmerSwimmer's initial conditions (seed_artif*.m files and set_constants) need to be changed so that they work correctly in these examples.
+They were changed because the folder 'functions/' was introduced and added to all the pathways. 
+This was done to allow for easier version control for the functions between changes.
+
+% Notes on optimisation for HPC runs.
+A lot of the current functions have flexibility to include extra feature (i.e. colloid-colloid interaction, swimmer backforce from colloids, etc.). 
+I am currently working on an optimised MatLab code (which removes all these options), which I intend to use for the HPC re-run. 
+This incomplete work is in the folder 'HPC_optimised/', notice here it has its own local version of the functions folder
+I also hope to convert this otimised code into a c++ version, which will serve as base code for future work, in case we want to run longer tests.
+
+% Notes on Work to be done on omega
+The folder 'Examples_SwimmersCollisionTopBoundary/withKick_VaryTorque/' is being worked on, the hope here is to understand the phase space of omega better to ensure in the work we're looking at the correct range of values. 
+Here, I hope to get the boundary contact time, which can be seen for the nth swimmer as: sum_t{PosS(n,5,t)}).
+And also the exit angle: (PosS(n,3,t)| {PosS(n,5,t_c)=0}).
