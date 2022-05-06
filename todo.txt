@@ -1,0 +1,5 @@
+
+The functions required for Example-swimmerSwimmer's initial conditions
+need to be changed so that they work in these examples.
+This is because the folder 'functions/' was made and added to all the pathways.
+(this was done to allow for easier version control between corrections to these functions.
