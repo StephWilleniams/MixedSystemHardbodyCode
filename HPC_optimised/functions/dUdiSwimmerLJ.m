@@ -62,7 +62,7 @@ function [DuDiS1] = dUdiSwimmerLJ(posSold1,posCold1,SDV1,RS1,RC1,Ns1,Nc1,eps1,wa
                 % Get distance and inverse of for potentials.
                 dr = siW*(y1 - y2);
                 
-                if ( abs(dr) < 2^(1/6)*sigSW(seg1) )
+                if ( abs(dr) < 2^(1/6)*sigSW1(seg1) )
                 
                     drm1 = 1/dr;
                     dy = (y1 - y2);

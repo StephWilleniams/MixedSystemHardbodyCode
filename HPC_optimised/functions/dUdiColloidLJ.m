@@ -24,7 +24,7 @@ function [DuDiC1] = dUdiColloidLJ(posSold1,posCold1,SDV1,RS1,RC1,Ns1,Nc1,eps1,wa
                 % Get distances for potentials.
                 dr = sqrt((r1(:,1) - r2(:,1))^2 + (r1(:,2) - r2(:,2))^2);
                 
-                if ( dr < 2^(1/6)*sigCS(seg2) )
+                if ( dr < 2^(1/6)*sigCS1(seg2) )
                 
                     drm1 = 1/dr;
                     dx = (r1(:,1) - r2(:,1));
@@ -55,7 +55,7 @@ function [DuDiC1] = dUdiColloidLJ(posSold1,posCold1,SDV1,RS1,RC1,Ns1,Nc1,eps1,wa
             % Get distance and inverse of for potentials.
             dr = siW*(y1 - y2);
             
-            if ( abs(dr) < 2^(1/6)*sigCW )
+            if ( abs(dr) < 2^(1/6)*sigCW1 )
                
                 drm1 = 1/dr;
                 dy = (y1 - y2);

@@ -13,7 +13,7 @@ load('data/S_1.mat')
 copyfile('data',['data_' num2str(nFlag)])
 
 % Set the runtime and the rate of making the images.
-fps = 10;
+fps = 20;
 startval = 400;
 endval = startval+30*fps;
 

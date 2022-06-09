@@ -84,7 +84,7 @@ for n = 1:Nstep-1 % loop over steps.
     FTSi = inv(FTS);    
     % Get the potential gradients.
     DuDiS = dUdiSwimmerLJ(PosSold,PosCold,SDV,RS,RC,Ns,Nc,epsilon,wall,sigSW,sigSC,sigSS);
-    DuDiC = dUdiColloidLJ(PosSold,PosCold,SDV,RS,RC,Ns,Nc,epsilon,wall,sigSW,sigSC,sigSS);   
+    DuDiC = dUdiColloidLJ(PosSold,PosCold,SDV,RS,RC,Ns,Nc,epsilon,wall,sigCS,sigCW);   
     % Implement the swimmer and colloid move factoring for BC.
     % Note: generic moveswimmer? could be used here for both 1 and 2.
     PosSnew1(:,:) = moveSwimmer1(PosSold,DuDiS,Ns,FS,dt,DSr,FTSi,VS,SWT,Ysi,Xsi,k,RS,MoMax,kickType,SDV,SBT,polarity,kickMethod,wTorq0,stream);
@@ -95,7 +95,7 @@ for n = 1:Nstep-1 % loop over steps.
     FTSi = inv(FTS);    
     % Get 2nd step potentials.
     DuDiS = dUdiSwimmerLJ(PosSnew1,PosCold,SDV,RS,RC,Ns,Nc,epsilon,wall,sigSW,sigSC,sigSS);
-    DuDiC = dUdiColloidLJ(PosSnew1,PosCold,SDV,RS,RC,Ns,Nc,epsilon,wall,sigSW,sigSC,sigSS);    
+    DuDiC = dUdiColloidLJ(PosSnew1,PosCold,SDV,RS,RC,Ns,Nc,epsilon,wall,sigCS,sigCW);    
     % Implement the swimmer and colloid move factoring for BC.
     % Note: generic moveswimmer? could be used here for both 1 and 2.
     PosSnew2(:,:) = moveSwimmer2(PosSnew1,DuDiS,Ns,FS,dt,DSr,FTSi,VS,SWT,Ysi,Xsi,k,RS,MoMax,kickType,SDV,SBT,polarity,kickMethod,wTorq0,stream);

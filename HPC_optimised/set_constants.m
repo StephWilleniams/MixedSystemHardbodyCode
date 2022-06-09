@@ -99,4 +99,4 @@ for i = 1:3
         sigSS(i,j) = (RS(i) + RS(j))/2^(1/6);
     end
 end
-sigCW = RC1/2^(1/6);
+sigCW = RC/2^(1/6);
