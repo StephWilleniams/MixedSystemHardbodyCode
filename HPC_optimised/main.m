@@ -12,27 +12,17 @@
 clear Workspace;
 clear figure;
 
-%rmdir data s
-mkdir data
-mkdir movies/png
-mkdir movies/mp4
-
 addpath('functions/');
 
-seedNum = 1;
+seedNum = 16*wTorq + in;
 stream = RandStream.create('mlfg6331_64','seed',seedNum);
 
-% Set Boundary behaviours.
-k = 1000;
-wTorq0 = -2*seedNum; 
+mkdir(['data/' num2str(wTorq) '/' num2str(in)]);
 
 % Initialise.
 set_constants; % Set all the constants from the constants script
 kickType = 'np';
 extension = '=k';
-
-%
-fileNum = seedNum; 
 
 %-------------------%
 %%% INITIAL CONDITIONS
@@ -108,7 +98,7 @@ for n = 1:Nstep-1 % loop over steps.
     % Save the data if it is needed.
     % Note: this step is horribly inefficient.
     if t == saverSize || n+1 == Nstep
-        [PosS,PosC,PosStemp,PosCtemp] = dataSaver(PosS, PosC, t, seedNum);
+        [PosS,PosC,PosStemp,PosCtemp] = dataSaver(PosS, PosC, n, t, in, wTorq);
     end
     
 end

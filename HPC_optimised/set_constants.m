@@ -12,7 +12,7 @@ Tc = Lc/Vc; % Characteristic time [s].
 %%%
 
 % Simulation parameters dimensional.
-T = 2; % Total code physical runtime [s].
+T = 4000; % Total code physical runtime [s].
 dt = 0.0005; % Time increment[s].    
 Xsi = 500; % Channel length [um].
 Ysi = 100; % Channel width [um].
